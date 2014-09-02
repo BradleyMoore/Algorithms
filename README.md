@@ -1,4 +1,4 @@
 Algorithms
 ==========
 
-Sampling of algorithms in Python.
+Algorithms from Stanford's algorithm class on Coursera in Python
