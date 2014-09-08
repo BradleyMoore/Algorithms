@@ -29,6 +29,13 @@ def mergesort (unsorted):
         else if j == len(right):
             sorted.append(left[i:]
 
+        # append lesser of the 2 options
+        if left[i] < right[j]:
+            sorted.append(left[i])
+            i = i + 1
+        else:
+            sorted.append(right[j])
+            j = j + 1
 
-
+    print sorted
 
