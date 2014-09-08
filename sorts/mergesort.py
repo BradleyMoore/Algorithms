@@ -19,16 +19,16 @@ def mergesort(unsorted):
     j = 0
     iter_length = 0
     if len(left) > len(right):
-        iter_length = len(left)
-    else:
         iter_length = len(right)
+    else:
+        iter_length = len(left)
 
-    for k in xrange(unsorted):
+    for k in xrange(iter_length):
         # if one side gets finished just append the rest of the other sorted side
         if i == len(left):
-            sorted.append(right[j:]
+            sorted.append(right[j:])
         elif j == len(right):
-            sorted.append(left[i:]
+            sorted.append(left[i:])
 
         # append lesser of the 2 options
         if left[i] < right[j]:
@@ -42,6 +42,6 @@ def mergesort(unsorted):
 
 
 while __name__ == '__main__':
-    list = [245,356,467,689,678,3456,234,234,234,346,56,231,212,13,24,345,456,68,76,345,34,134]
+    list = [1,245,356,467,689,678,3456,234,234,234,346,56,231,212,13,24,345,456,68,76,345,34,134]
     mergesort(list)
 
