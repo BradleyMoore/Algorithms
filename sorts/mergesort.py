@@ -28,48 +28,16 @@ def mergesort (unsorted):
 	if len(unsorted <= 1):
 		return unsorted
 	
-	split(unsorted)
-
-
-def split(unsorted):
 	mid = int(len(unsorted) / 2)
 	left = unsorted[:mid]
 	right = unsorted[mid:]
+    sorted = []
 
-	return (left, right)
+    if len(left) > 1:
+        mergesort(left)
+    else if len(right) > 1:
+        mergesort(right)
 
-	if len(left) > 1:
-		mergesort(left)
-	if len(right) > 1:
-		mergesort(right)
-
-	sort((left, right))
-
-def sort(unsorted):
-	if left[0] > right[0]:
-		sorted.append(right)
-	else sorted.append(left)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    i = 0
+    j = 0
 
