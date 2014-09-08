@@ -8,15 +8,11 @@ def mergesort(unsorted):
     left = unsorted[:mid]
     right = unsorted[mid:]
     sorted = []
-    print str(left) + ' <-- left'
-    print str(right) + ' <-- right'
 
     # recursively split the lists down to lengths of 1
     if len(left) > 1:
-        print str(left) + ' <-- merge left'
         left = mergesort(left)
     if len(right) > 1:
-        print str(right) + ' <-- merge right'
         right = mergesort(right)
 
     i = 0
@@ -32,12 +28,10 @@ def mergesort(unsorted):
         if i == len(left):
             sorted.extend(right[j:])
             j = j + 1
-            print str(j) + ' <-- j'
             break
         elif j == len(right):
             sorted.extend(left[i:])
             i = i + 1
-            print str(i) + ' <-- i'
             break
 
         # append lesser of the 2 options
@@ -48,7 +42,6 @@ def mergesort(unsorted):
             sorted.append(right[j])
             j = j + 1
 
-    print str(sorted) + ' <-- sorted'
     return sorted
 
 
