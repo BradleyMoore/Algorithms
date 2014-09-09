@@ -1,3 +1,6 @@
+import sys
+
+
 def mergesort(unsorted):
 
     # if length of list is <= 1 it is already sorted
@@ -46,7 +49,8 @@ def mergesort(unsorted):
 
 
 if __name__ == '__main__':
-    list = [4,7,3,2,57,4,345,768,89,345,234,56,768,789,768,4,23,45,568,89,0,6,234,2345,768,79,0,789,356,23,1,346,578,76,4,235,346,68,247,383,3,568,58,56,7,3,4,36,76,54]
-    sort = mergesort(list)
-    print str(sort) + ' <-- sort'
+    unsorted = [3,345,456,7,879,970,7,4,23,123,45,467,578,78,6,4,324,145,345,3456,567,5768,6589,69,69]
+    sort = mergesort(unsorted)
+    print '%r <-- unsorted' % unsorted
+    print '%r <-- sorted' % sort
 
