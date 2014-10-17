@@ -1,6 +1,3 @@
-import sys
-
-
 def mergesort(unsorted):
     """Takes an unsorted list as imput and return a sorted list."""
     sorted = []
