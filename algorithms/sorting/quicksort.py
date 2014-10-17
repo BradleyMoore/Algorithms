@@ -1,25 +1,33 @@
 from random import randint
 
-def quicksort(unsorted):
+def quicksort(unsorted, start=0, end=0):
     if len(unsorted) <= 1:
         return unsorted
         
-    start = 0
-    end = start + 1
     pivot = choose_pivot(start, end)
+    sorted = sort(unsorted, pivot, start, end)
     
-    sort(unsorted, start, pivot, end)
+    return sorted
     
     
-
 def choose_pivot(start, end):
-    pivot = randint(start, end)
+    pivot = randint(start, end-1)
     
     return pivot
 
 
-def sort(unsorted, start, pivot, end):
+def sort(unsorted, pivot, start=0, end=len(unsorted)):
     pass
+    
+
+def first_half(unsorted, start, end):
+    pass
+
+
+def last_half(unsorted, start, end):
+    pass
+    
+    
 
 
 
