@@ -19,7 +19,7 @@ def mergesort(unsorted):
 
 
 def split_list(unsorted):
-    """Takes an unsortec list as input and returns 2 lenght n/2 unstored lists in a tuple."""
+    """Takes an unsorted list as input and returns 2 lenght n/2 unstored lists in a tuple."""
     mid = len(unsorted) / 2
     left = unsorted[:mid]
     right = unsorted[mid:]
