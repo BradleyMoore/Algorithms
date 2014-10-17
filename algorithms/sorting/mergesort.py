@@ -2,24 +2,27 @@ import sys
 
 
 def mergesort(unsorted):
+    """Takes an unsorted list as imput and return a sorted list."""
     sorted = []
 
     # if length of list is <= 1 it is already sorted
     if len(unsorted) <= 1:
         return unsorted
 
+    # split list into 2 halves
     left, right = split_list(unsorted)
 
+    # sort and merge the 2 list halves
     sorted = merge(left, right)
 
     return sorted
 
 
 def split_list(unsorted):
+    """Takes an unsortec list as input and returns 2 lenght n/2 unstored lists in a tuple."""
     mid = len(unsorted) / 2
     left = unsorted[:mid]
     right = unsorted[mid:]
-    sorted = []
 
     # recursively split the lists down to lengths of 1
     if len(left) > 1:
@@ -31,6 +34,7 @@ def split_list(unsorted):
 
 
 def merge(left, right):
+    """Takes 2 unsorted lists and returns 1 sorted list."""
     sorted = []
 
     i = 0
@@ -61,4 +65,3 @@ if __name__ == '__main__':
 
     print '%r <-- unsorted' % unsorted
     print '%r <-- sorted' % sort
-
