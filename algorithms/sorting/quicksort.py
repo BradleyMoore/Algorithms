@@ -17,21 +17,33 @@ def choose_pivot(start, end):
 
 
 def sort(unsorted, pivot, start=0, end=len(unsorted)):
-    pass
-    
+    last_less = 0
+    for i in xrange(start, end):
+        if unsorted[i] < unsorted[pivot]:
+            unsorted.insert(last_less, unsorted[i])
+            unsorted.remove(i)
+            if i > pivot:
+                pivot = pivot + 1
+            last_less = last_less + 1
+            continue
+        elif unsorted[i] > unsorted[pivot]:
+            unsorted.insert(end, unsorted[i])
+            unsorted.remove(i)
+            if i < pivot:
+                pivot = pivot - 1
+            continue
+        else:
+            continue
 
-def first_half(unsorted, start, end):
-    pass
+    unsorted[i], unsorted[pivot] = unsorted[pivot], unsorted[i]    
 
+    partial_sort = quicksort(unsorted, 0, pivot-1)
+    partial_sort = quicksort(partial_sort, pivot+1, len(unsorted))
 
-def last_half(unsorted, start, end):
-    pass
-    
-    
-
-
-
-
+    for i in xrange(len(unsorted)-1):
+        if partial_sort[i] > partial_sort[i+1]:
+            sorted = unsorted
+            return sorted
 
 
 if __name__ == '__main__':
