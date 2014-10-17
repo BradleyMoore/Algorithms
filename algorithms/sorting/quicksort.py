@@ -1,11 +1,11 @@
 from random import randint
 
+
 def quicksort(unsorted, start=0, end=0):
     if len(unsorted) <= 1:
         return unsorted
-        
-    pivot = choose_pivot(start, end)
-    sorted = sort(unsorted, pivot, start, end)
+    
+    sorted = sort(unsorted, start, end)
     
     return sorted
     
@@ -16,7 +16,12 @@ def choose_pivot(start, end):
     return pivot
 
 
-def sort(unsorted, pivot, start=0, end=len(unsorted)):
+def sort(unsorted, pivot, start=0, end=0):
+    if end == 0:
+        end = len(unsorted)
+
+    pivot = choose_pivot(start, end)
+
     last_less = 0
     for i in xrange(start, end):
         if unsorted[i] < unsorted[pivot]:
