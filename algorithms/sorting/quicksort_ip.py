@@ -3,14 +3,19 @@ from random import randint
 
 def partition(unsorted, start, end, pivot):
     """Return final resting place of pivot; RIP sweet pivot."""
-    pivot = choose_pivot(start, end)
+    pivot = unsorted[choose_pivot(start, end)]
 
-    # move pivot to beginning for less coding to occur
+    # move pivot to beginning for logic
     unsorted[start], unsorted[pivot] = unsorted[pivot], unsorted[start]
     i = start + 1
     j = start + 1
 
-
+    # move elements less than pivot to the left so the pivot can be swapped later
+    while j < end:
+        if unsorted[j] < pivot:
+            unsorted[j], unsorted[i] = unsorted[i], unsorted[j]
+            i = i + 1
+        j = j + 1
 
 
 def choose_pivot(start, end):
