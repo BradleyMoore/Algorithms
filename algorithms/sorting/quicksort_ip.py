@@ -6,7 +6,9 @@ def partition(unsorted, start, end, pivot):
 
 
 def choose_pivot(start, end):
-    pass
+    """Input start and end locations of list and return a random number between the 2."""
+    pivot = randint(start, end)
+    return pivot
 
 
 def quicksort(unsorted, start=0, end=None):
