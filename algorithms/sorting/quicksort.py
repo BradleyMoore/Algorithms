@@ -1,57 +1,37 @@
-from random import randint
+import random
 
 
-def quicksort(unsorted, start=0, end=0):
-    if len(unsorted) <= 1:
+def quicksort(unsorted):
+    """Input unsorted list and return either list if len < 2 or return sorted list"""
+    if len(unsorted)<2:
         return unsorted
 
-    sorted = sort(unsorted, start, end)
+    pivot = choose_pivot(unsorted)
+    left, equals, right = partition(unsorted, pivot)
 
+    sorted = quicksort(left) + equals + quicksort(right)
     return sorted
 
 
-def choose_pivot(start, end):
-    pivot = randint(start, end-1)
-
+def choose_pivot(unsorted):
+    """Input unsorted list and return a random item from it"""
+    pivot = random.choice(unsorted)
     return pivot
 
 
-def sort(unsorted, pivot, start=0, end=0):
-    if end == 0:
-        end = len(unsorted)
+def partition(unsorted, pivot):
+    """Input unsorted list and the randomized element and return 3 quicksorted lists"""
+    left = [i for i in unsorted if i < pivot]
+    equals = [i for i in unsorted if i == pivot]
+    right = [i for i in unsorted if i > pivot]
 
-    pivot = choose_pivot(start, end)
-
-    last_less = 0
-    for i in xrange(start, end):
-        if unsorted[i] < unsorted[pivot]:
-            unsorted.insert(last_less, unsorted[i])
-            unsorted.remove(unsorted[i])
-            if i > pivot:
-                pivot = pivot + 1
-            last_less = last_less + 1
-            continue
-        elif unsorted[i] > unsorted[pivot]:
-            unsorted.insert(end, unsorted[i])
-            unsorted.remove(unsorted[i])
-            if i < pivot:
-                pivot = pivot - 1
-            continue
-        else:
-            continue
-
-    unsorted[i], unsorted[pivot] = unsorted[pivot], unsorted[i]
-
-    partial_sort = quicksort(unsorted, 0, pivot-1)
-    partial_sort = quicksort(partial_sort, pivot+1, len(unsorted))
-
-    sorted = partial_sort
-    return sorted
+    return left, equals, right
 
 
 if __name__ == '__main__':
     unsorted = [3,345,456,7,879,970,7,4,23,123,45,467,578,78,6,4,324,145,345,3456,567,5768,6589,69,69]
-    sort = quicksort(unsorted)
+    sorted = quicksort(unsorted)
 
     print '%r <-- unsorted' % unsorted
-    print '%r <-- sorted' % sort
+    print '%r <-- sorted' % sorted
+
