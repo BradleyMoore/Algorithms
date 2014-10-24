@@ -17,6 +17,9 @@ def partition(unsorted, start, end, pivot):
             i = i + 1
         j = j + 1
 
+    unsorted[start], unsorted[pivot] = unsorted[pivot], unsorted[start]
+    return i - 1
+
 
 def choose_pivot(start, end):
     """Input start and end locations of list and return a random number between the 2."""
