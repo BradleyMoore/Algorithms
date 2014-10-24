@@ -2,7 +2,15 @@ from random import randint
 
 
 def partition(unsorted, start, end, pivot):
-    pass
+    """Return final resting place of pivot; RIP sweet pivot."""
+    pivot = choose_pivot(start, end)
+
+    # move pivot to beginning for less coding to occur
+    unsorted[start], unsorted[pivot] = unsorted[pivot], unsorted[start]
+    i = start + 1
+    j = start + 1
+
+
 
 
 def choose_pivot(start, end):
