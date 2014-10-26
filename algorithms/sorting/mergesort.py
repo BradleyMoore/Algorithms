@@ -1,33 +1,18 @@
-def mergesort(unsorted):
-    """Takes an unsorted list as imput and return a sorted list."""
-    sorted = []
-
-    # if length of list is <= 1 it is already sorted
-    if len(unsorted) <= 1:
+def sort(unsorted):
+    """Takes an unsorted list as input and returns 2 lenght n/2 unstored lists in a tuple."""
+    if len(unsorted) < 2:
         return unsorted
 
-    # split list into 2 halves
-    left, right = split_list(unsorted)
-
-    # sort and merge the 2 list halves
-    sorted = merge(left, right)
-
-    return sorted
-
-
-def split_list(unsorted):
-    """Takes an unsorted list as input and returns 2 lenght n/2 unstored lists in a tuple."""
+    # split up list
     mid = len(unsorted) / 2
     left = unsorted[:mid]
     right = unsorted[mid:]
 
-    # recursively split the lists down to lengths of 1
-    if len(left) > 1:
-        left = mergesort(left)
-    if len(right) > 1:
-        right = mergesort(right)
+    # recursively split list to lengths of 1
+    left = sort(left)
+    right = sort(right)
 
-    return (left, right)
+    return merge(left, right)
 
 
 def merge(left, right):
@@ -56,9 +41,10 @@ def merge(left, right):
     return sorted
 
 
-if __name__ == '__main__':
-    unsorted = [3,345,456,7,879,970,7,4,23,123,45,467,578,78,6,4,324,145,345,3456,567,5768,6589,69,69]
-    sort = mergesort(unsorted)
+def mergesort(unsorted):
+    """Takes an unsorted list as imput and return a sorted list."""
+    # if length of list is <= 1 it is already sorted
+    if len(unsorted) <= 1:
+        return unsorted
 
-    print '%r <-- unsorted' % unsorted
-    print '%r <-- sorted' % sort
+    return sort(unsorted)
