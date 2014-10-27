@@ -1,4 +1,4 @@
 Algorithms
 ==========
 
-Algorithms from Stanford's algorithm class on Coursera in Python
+Common algorithms. I'm writing them here so help me learn them.
